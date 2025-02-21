@@ -133,7 +133,10 @@ public class FirstSteps {
      * @param array
      */
     public void cube(int[] array) {
-        array = Arrays.stream(array).map(a -> a * a * a).toArray();
+        for(int i = 0 ; i < array.length;i++)
+        {
+            array[i] =  array[i]* array[i]* array[i];
+        }
     }
 
     /**
@@ -154,13 +157,13 @@ public class FirstSteps {
      * @param array
      */
     public void reverse(int[] array) {
-        int[] res = new int[array.length];
+        int buf = 0;
 
-        for (int i = array.length - 1; i >= 0; i--) {
-            res[array.length - 1 - i] = array[i];
+        for (int i = 0,j= array.length-1; i < array.length/2; i++,j--) {
+            buf = array[j];
+            array[j] = array[i];
+            array[i] = buf;
         }
-
-        array = res;
     }
 
     /**
