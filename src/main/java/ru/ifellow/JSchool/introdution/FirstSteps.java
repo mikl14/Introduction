@@ -2,7 +2,6 @@ package ru.ifellow.JSchool.introdution;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class FirstSteps {
@@ -123,7 +122,12 @@ public class FirstSteps {
      * @param array
      */
     public boolean isSortedDescendant(int[] array) {
-        return Arrays.equals(Arrays.stream(array).boxed().sorted(Collections.reverseOrder()).mapToInt(a -> a).toArray(), array);
+        if (array.length < 2) return true;
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] <= array[i + 1]) return false;
+        }
+
+        return true;
     }
 
     /**
@@ -133,9 +137,8 @@ public class FirstSteps {
      * @param array
      */
     public void cube(int[] array) {
-        for(int i = 0 ; i < array.length;i++)
-        {
-            array[i] =  array[i]* array[i]* array[i];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = array[i] * array[i] * array[i];
         }
     }
 
@@ -159,7 +162,7 @@ public class FirstSteps {
     public void reverse(int[] array) {
         int buf = 0;
 
-        for (int i = 0,j= array.length-1; i < array.length/2; i++,j--) {
+        for (int i = 0, j = array.length - 1; i < array.length / 2; i++, j--) {
             buf = array[j];
             array[j] = array[i];
             array[i] = buf;
